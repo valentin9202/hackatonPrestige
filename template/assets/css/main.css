@@ -3165,6 +3165,10 @@
 			line-height: inherit;
 			padding: 0 1.5em;
 		}
+		
+		#header .logo img{
+			width:75%;
+		}
 
 			#header .logo strong {
 				-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -3346,6 +3350,10 @@
 
 				#header .logo {
 					padding: 0 1em;
+				}
+				
+				#header .logo img{
+					width: 45%;
 				}
 
 				#header nav a {
