@@ -65,6 +65,13 @@
 											<label for="pictures">Photos</label>
 											<input type="file" class="form-control-file" id="pictures" name="pictures[]" multiple>
 										</div>
+                                        <div class="field">
+                                            <label for="price">Prix</label>
+                                            <input type="number" name="price" id="price">
+                                        </div>
+                                        <div class='field'>
+                                            <input type="submit" name="submit" id="submit" value="Envoyer">
+                                        </div>
 									</form>
 								</section>
 								
@@ -100,11 +107,33 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
+        <script type="text/javascript" src="assets/js/tools.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.18"></script>
         <script>
-          var placesAutocomplete = places({
-            container: document.querySelector('#address')
-          });
+          
+        $(function(){
+            var placesAutocomplete = places({
+                container: document.querySelector('#address')
+            });
+
+            initializeStorage();
+
+            $("#myForm").on('submit', function(event) {
+                event.preventDefault();
+                
+                var files = $("#pictures").prop("files");
+                var fileNames = $.map(files, function(val) { return val.name; });
+                addItem('events', {
+                    name : $("#name").val(),
+                    description : $("#description").val(),
+                    address : $("address").val(),
+                    pictures : fileNames,
+                    start_date : $("#dateStart").val(),
+                    end_date : $("#dateEnd").val(),
+                    price : $("#price").val()
+                });
+            });
+        });
           
         </script>
     </body>

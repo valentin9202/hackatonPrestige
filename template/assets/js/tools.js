@@ -68,3 +68,5 @@ function initializeStorage() {
         localStorage.setItem("serial", 1);
     }
 }
+
+    
