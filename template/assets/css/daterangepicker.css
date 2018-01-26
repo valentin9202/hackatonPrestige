@@ -1,3 +1,9 @@
+.ap-input-icon.ap-icon-pin{
+	    right: 0!important;
+}
+.ap-input-icon svg{
+	right: 19px!important;
+}
 .daterangepicker {
   position: absolute;
   color: inherit;
