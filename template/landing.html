@@ -74,54 +74,6 @@
 
 						<!-- Two -->
 							<section id="two" class="spotlights">
-								<section>
-									<a href="generic.html" class="image">
-										<img src="images/pic08.jpg" alt="" data-position="center center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Orci maecenas</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="generic.html" class="image">
-										<img src="images/pic09.jpg" alt="" data-position="top center" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Rhoncus magna</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
-								<section>
-									<a href="generic.html" class="image">
-										<img src="images/pic10.jpg" alt="" data-position="25% 25%" />
-									</a>
-									<div class="content">
-										<div class="inner">
-											<header class="major">
-												<h3>Sed nunc ligula</h3>
-											</header>
-											<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-											<ul class="actions">
-												<li><a href="generic.html" class="button">Learn more</a></li>
-											</ul>
-										</div>
-									</div>
-								</section>
 							</section>
 
 						<!-- Three -->
@@ -209,6 +161,24 @@
 			</div>
 
 		<!-- Scripts -->
+            <script id="hidden-template" type="text/x-custom-template">
+                <section>
+                    <a href="generic.html" class="image">
+                        <img src="images/pic08.jpg" alt="" data-position="center center" />
+                    </a>
+                    <div class="content">
+                        <div class="inner">
+                            <header class="major">
+                                <h3>Orci maecenas</h3>
+                            </header>
+                            <p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+                            <ul class="actions">
+                                <li><a href="generic.html" class="button">Learn more</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -216,6 +186,45 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="assets/js/tools.js"></script>
+            <script>
+                $(function() {
+                    const Item = ({ id, img, title, desc }) => `
+                        <section>
+                            <a href="event.html?id=${id}" class="image">
+                                <img src="${img}" alt="" data-position="25% 25%" />
+                            </a>
+                            <div class="content">
+                                <div class="inner">
+                                    <header class="major">
+                                        <h3>${title}</h3>
+                                    </header>
+                                    <p>${desc}</p>
+                                    <ul class="actions">
+                                        <li><a href="event.html?id=${id}" class="button">Learn more</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+                    `;
 
+                    initializeStorage();
+
+                    var items = getItems("events");
+                    var list_items = [];
+
+                    for (var i = 0; items[i]; i++) {
+                        list_items.push({
+                            id: items[i]['id'],
+                            img: items[i]['pictures'][0],
+                            title: items[i]['name'],
+                            desc: items[i]['description']
+                        });
+                    }
+
+
+                    $('#two').html(list_items.map(Item).join(''));
+                });
+            </script>
 	</body>
 </html>
