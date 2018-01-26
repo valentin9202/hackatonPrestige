@@ -46,7 +46,9 @@ function getItem(key, id) {
     }
 
     for (var i = 0; items[i]; i++) {
-        return items[i];
+        if (items[i]['id'] == id) {
+            return items[i];
+        }
     }
 
     return null;
@@ -68,3 +70,5 @@ function initializeStorage() {
         localStorage.setItem("serial", 1);
     }
 }
+
+    
