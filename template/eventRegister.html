@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Creation d'évènement</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/daterangepicker.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
     <body>
@@ -53,9 +52,13 @@
 											<input type="search" id="address" name="address" placeholder="Where are we going?" />
 										</div>
 										<div class="field">
-											<label for='daterange'>Dates</label>
-											<input type="text" id='daterange' name="daterange" value="01/01/2015 - 01/31/2015" id="daterange"/>
+											<label for='daterange'>Date Debut</label>
+											<input type="date" id='dateStart' name="dateStart" value=""/>
 										</div>
+                                        <div class="field">
+                                            <label for='daterange'>Date Fin</label>
+                                            <input type="date" id='dateEnd' name="dateEnd" value="" />
+                                        </div>
 										<div class="field">
 											<label for="description">Description</label>
 											<textarea class="form-control" id="description" rows="3" name="description"></textarea>
@@ -64,6 +67,13 @@
 											<label for="pictures">Photos</label>
 											<input type="file" class="form-control-file" id="pictures" name="pictures[]" multiple>
 										</div>
+                                        <div class="field">
+                                            <label for="price">Prix</label>
+                                            <input type="number" name="price" id="price">
+                                        </div>
+                                        <div class='field'>
+                                            <input type="submit" name="submit" id="submit" value="Envoyer">
+                                        </div>
 									</form>
 								</section>
 								
@@ -99,17 +109,34 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
-
-        
-
-        <script type="text/javascript" src="assets/js/moment.js"></script>
-        <script type="text/javascript" src="assets/js/daterangepicker.js"></script>
+        <script type="text/javascript" src="assets/js/tools.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.18"></script>
         <script>
-          var placesAutocomplete = places({
-            container: document.querySelector('#address')
-          });
-          $('#daterange').daterangepicker();
+          
+        $(function(){
+            var placesAutocomplete = places({
+                container: document.querySelector('#address')
+            });
+
+            initializeStorage();
+
+            $("#myForm").on('submit', function(event) {
+                event.preventDefault();
+                
+                var files = $("#pictures").prop("files");
+                var fileNames = $.map(files, function(val) { return val.name; });
+                addItem('events', {
+                    name : $("#name").val(),
+                    description : $("#description").val(),
+                    address : $("address").val(),
+                    pictures : fileNames,
+                    start_date : $("#dateStart").val(),
+                    end_date : $("#dateEnd").val(),
+                    price : $("#price").val()
+                });
+            });
+        });
+          
         </script>
     </body>
 </html>
