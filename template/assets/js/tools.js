@@ -54,6 +54,11 @@ function getItem(key, id) {
     return null;
 }
 
+function setAccountConnected() {
+    var connected = 1;
+    localStorage.setItem("connected", connected.toString());
+}
+
 function initializeStorage() {
     var str = getItems("events");
     if (!str) {
@@ -67,8 +72,12 @@ function initializeStorage() {
 
     var str = localStorage.getItem("serial");
     if (!str) {
-        localStorage.setItem("serial", 1);
+        var initial = 1;
+        localStorage.setItem("serial", initial.toString());
+    }
+
+    var str = localStorage.getItem("connected");
+    if (!str) {
+        localStorage.setItem("connected", 0);
     }
 }
-
-    

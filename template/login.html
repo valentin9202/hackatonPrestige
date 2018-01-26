@@ -24,6 +24,7 @@
             initializeStorage();
 
             $('#loginButton').click(function() {
+                setAccountConnected();
                 window.location.href = './index.html';
             })
         })
@@ -34,9 +35,10 @@
 <!-- Wrapper -->
 <div id="wrapper">
 
-    <!-- Header -->
     <header id="header" class="alt">
-        <a href="index.html" class="logo"><strong>Prestige</strong> <span>by Equipe </span></a>
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="" />
+        </a>
         <nav>
             <a href="#menu">Menu</a>
         </nav>
