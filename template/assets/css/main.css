@@ -3167,7 +3167,8 @@
 		}
 		
 		#header .logo img{
-			width:75%;
+			    width: 38%;
+				height: 100%;
 		}
 
 			#header .logo strong {
@@ -3353,7 +3354,9 @@
 				}
 				
 				#header .logo img{
-					width: 45%;
+				
+					width: 22%;
+					height: 100%;
 				}
 
 				#header nav a {
