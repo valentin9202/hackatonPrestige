@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Creation d'évènement</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/daterangepicker.css" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+    <body>
+
+        <!-- Wrapper -->
+            <div id="wrapper">
+
+                <!-- Header -->
+                    <header id="header" class="alt">
+                        <a href="index.html" class="logo"><strong>Prestige</strong> <span>by Equipe </span></a>
+                        <nav>
+                            <a href="#menu">Menu</a>
+                        </nav>
+                    </header>
+
+                <!-- Menu -->
+                    <nav id="menu">
+                        <ul class="links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="generic.html">Produits</a></li>
+                        </ul>
+                        <ul class="actions vertical">
+                            <li><a href="#one" class="button next scrolly">Découvrir </a></li>
+                            <li><a href="#login" class="button fit">Log In</a></li>
+                        </ul>
+                    </nav>
+
+                <!-- Main -->
+                    <div id="main" class="alt">
+
+                        <!-- One -->
+                        <form id="myForm">
+                            <div class="form-group">
+                                <label for="name">Nom</label>
+                                <input type="text" class="form-control" id="name" placeholder="name@example.com" name="name">
+                            </div>
+                            <div class='form-group'>
+                                <label for="adress">Adresse</label>
+                                <input type="search" id="address" name="address" placeholder="Where are we going?" />
+                            </div>
+                            <div class='form-group'>
+                                <label for='daterange'>Dates</label>
+                                <input type="text" id='daterange' name="daterange" value="01/01/2015 - 01/31/2015" id="daterange/>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="pictures">Photos</label>
+                                <input type="file" class="form-control-file" id="pictures" name="pictures[]" multiple>
+                            </div>
+                        </form>
+
+                    </div>
+
+
+
+                <!-- Footer -->
+                    <footer id="footer">
+                        <div class="inner">
+                            <ul class="icons">
+                                <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                                <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+                                <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                                <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                                <li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                            </ul>
+                            <ul class="copyright">
+                                <li>&copy; HACKATHON 5</li><li>Design: <a href="https://html5up.net">Team 1</a></li>
+                            </ul>
+                        </div>
+                    </footer>
+
+            </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="assets/js/main.js"></script>
+
+        
+
+        <script type="text/javascript" src="assets/js/moment.js"></script>
+        <script type="text/javascript" src="assets/js/daterangepicker.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/places.js@1.4.18"></script>
+        <script>
+          var placesAutocomplete = places({
+            container: document.querySelector('#address')
+          });
+          $('#daterange').daterangepicker();
+        </script>
+    </body>
+</html>
