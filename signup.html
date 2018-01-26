@@ -23,8 +23,23 @@
 
             initializeStorage();
 
-            $('#loginButton').click(function() {
-            })
+            $('#signupButton').click(function() {
+                var email = $('#usernamesignup').val();
+                var password = $('#passwordsignup').val();
+                var firstname = $('#firstname').val();
+                var lastname = $('#lastname').val();
+
+                var user = {
+                    'email': email,
+                    'password': password,
+                    'firstname': firstname,
+                    'lastname': lastname,
+                    'orders': [],
+                    'promotor': []
+                };
+
+                addItem('users', user);
+            });
         })
     </script>
 </head>
@@ -59,27 +74,30 @@
         <!-- One -->
         <section id="one">
             <div class="inner">
-                <a class="hiddenanchor" id="toregister"></a>
-                <a class="hiddenanchor" id="tologin"></a>
-                <div id="login" class="animate form">
-                    <h1>Se connecter</h1>
-                    <div class="input-container">
-                        <label for="email"><b>votre email</b></label>
-                        <input id="email" required="required" type="email"
-                               placeholder="Saisissez votre adresse e-mail" />
+                <div id="register" class="animate form">
+                    <h1>Démarrer maintenant!</h1>
+                    <div class="row">
+                        <div class="input-cotainer">
+                            <label for="firstname">Prénom</label>
+                            <input type="text" id="firstname" placeholder="Jean">
+                        </div>
+                        <div class="input-cotainer">
+                            <label for="lastname">Nom</label>
+                            <input type="text" id="lastname" placeholder="Dupond">
+                        </div>
                     </div>
                     <div class="input-container">
-                        <label for="password"><b>Mot de passe</b></label>
-                        <input id="password" required="required" type="password" placeholder="••••••••"/>
+                        <label for="email">Email</label>
+                        <input type="email" id="emailsignup" placeholder="dupond@stark.com">
                     </div>
-                    <p class="loginkeeping">
-                        <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
-                        <label for="loginkeeping">Rester connecté</label>
-                    </p>
-                    <input type="button" id="loginButton" value="Se connecter" />
+                    <div class="input-container">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" id="passwordsignup">
+                    </div>
+                    <input type="button" id="signupButton" value="S'inscrire" />
                     <p>
-                        Vous n'avez pas encore de compte?
-                        <a href="signup.html" class="to_register">S'inscrire gratuitement</a>
+                        Vous avez déjà un compte?
+                        <a href="#tologin" class="to_register">Connectez-vous</a>
                     </p>
                 </div>
 
